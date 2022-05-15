@@ -8,8 +8,8 @@
       update_only: yes
     register: dnf_update_status
 
-  - name: Remove packages not needed anymore
-    yum:
+  - name: Remove old packages
+    dnf:
       autoremove: yes
 
   - name: Reboot if packages were updated
