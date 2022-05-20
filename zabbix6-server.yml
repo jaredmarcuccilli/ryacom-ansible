@@ -18,8 +18,8 @@
           - zabbix-selinux-policy
           - zabbix-agent
           - mysql-server
-        disable_gpg_check: yes
         state: present
+        disable_gpg_check: yes
         
   - name: Start and enable MySQL
     service:
