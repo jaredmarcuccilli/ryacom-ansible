@@ -18,6 +18,7 @@
           - zabbix-sql-scripts
           - zabbix-selinux-policy
           - zabbix-agent
+          - mysql-client
           - mysql-server
         state: present
         
