@@ -9,7 +9,7 @@
   - name: Clear dnf cache
     command: dnf clean all
       
-  - name: Install Zabbix packages
+  - name: Install packages
     dnf:
         name:
           - zabbix-server-mysql
@@ -18,7 +18,7 @@
           - zabbix-sql-scripts
           - zabbix-selinux-policy
           - zabbix-agent
-          - mysql-client
+          - mysql
           - mysql-server
         state: present
         
