@@ -45,7 +45,7 @@
     community.mysql.mysql_user: login_user=root login_password="" name=zabbix password="password" priv="zabbix.*:ALL" state=present
       
   - name: Import initial Zabbix data
-    shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql --user=zabbix --password=password
+    shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql --user=zabbix --password=password zabbix
       
   - name: Edit Zabbix DB password in config
     lineinfile:
@@ -97,4 +97,4 @@
     
   - name: Print URL
     debug:
-      msg: http://hostname/zabbix Admin/zabbix
+      msg: All done! Go to http://hostname/zabbix (Admin/zabbix)
