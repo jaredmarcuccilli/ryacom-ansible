@@ -4,6 +4,7 @@
     dnf:
       name: https://repo.zabbix.com/zabbix/6.0/rhel/8/x86_64/zabbix-release-6.0-1.el8.noarch.rpm
       state: present
+      disable_gpg_check: yes
       
   - name: Clear dnf cache
     command: dnf clean all
@@ -19,7 +20,6 @@
           - zabbix-agent
           - mysql-server
         state: present
-        disable_gpg_check: yes
         
   - name: Start and enable MySQL
     service:
