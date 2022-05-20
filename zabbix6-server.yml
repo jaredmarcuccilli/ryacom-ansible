@@ -1,4 +1,6 @@
 - hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
   - name: Install Zabbix repo
     dnf:
@@ -18,9 +20,16 @@
           - zabbix-sql-scripts
           - zabbix-selinux-policy
           - zabbix-agent
-          - mysql
           - mysql-server
+          - python3-pip
         state: present
+        
+  - name: Install pip modules
+  pip:
+    name:
+      - PyMySQL
+    state: present
+    executable: pip3      
         
   - name: Start and enable MySQL
     service:
