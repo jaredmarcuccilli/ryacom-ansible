@@ -21,31 +21,31 @@
         state: present
         
   - name: Start and enable MySQL
-      service:
-        name: mysqld
-        state: started
-        enabled: yes
+    service:
+      name: mysqld
+      state: started
+      enabled: yes
         
   - name: Create Zabbix database
-      mysql_db: login_user=root login_password="" name=zabbix state=present encoding=utf8 collation=utf8mb4_bin
+    mysql_db: login_user=root login_password="" name=zabbix state=present encoding=utf8 collation=utf8mb4_bin
       
   - name: Create Zabbix MySQL user
-      mysql_user: login_user=root login_password="" name=zabbix password="password" priv="zabbix.*:ALL" state=present
+    mysql_user: login_user=root login_password="" name=zabbix password="password" priv="zabbix.*:ALL" state=present
       
   - name: Import initial Zabbix data
-      shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -pzabbix password
+    shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -pzabbix password
       
   - name: Edit Zabbix DB password in config
-      lineinfile:
-        path: /etc/zabbix/zabbix_server.conf
-        regexp: "^# DBpassword="
-        line: DBPassword=password
+    lineinfile:
+      path: /etc/zabbix/zabbix_server.conf
+      regexp: "^# DBpassword="
+      line: DBPassword=password
         
   - name: Start and enable Zabbix server
-      service:
-        name: zabbix-server
-        state: restarted
-        enabled: yes
+    service:
+      name: zabbix-server
+      state: restarted
+      enabled: yes
 
     - name: Start and enable Zabbix agent
       service:
