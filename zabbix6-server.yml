@@ -26,11 +26,11 @@
         state: present
         
   - name: Install pip modules
-  pip:
-    name:
-      - PyMySQL
-    state: present
-    executable: pip3      
+    pip:
+      name:
+        - PyMySQL
+      state: present
+      executable: pip3      
         
   - name: Start and enable MySQL
     service:
