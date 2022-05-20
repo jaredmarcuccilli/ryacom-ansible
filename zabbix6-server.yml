@@ -27,10 +27,10 @@
       enabled: yes
         
   - name: Create Zabbix database
-    mysql_db: login_user=root login_password="" name=zabbix state=present encoding=utf8 collation=utf8mb4_bin
+    community.mysql.mysql_db: login_user=root login_password="" name=zabbix state=present encoding=utf8 collation=utf8mb4_bin
       
   - name: Create Zabbix MySQL user
-    mysql_user: login_user=root login_password="" name=zabbix password="password" priv="zabbix.*:ALL" state=present
+    community.mysql.mysql_user: login_user=root login_password="" name=zabbix password="password" priv="zabbix.*:ALL" state=present
       
   - name: Import initial Zabbix data
     shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -pzabbix password
