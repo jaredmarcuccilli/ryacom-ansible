@@ -46,42 +46,43 @@
       name: zabbix-server
       state: restarted
       enabled: yes
+      
+  - name: Start and enable Zabbix agent
+    service:
+      name: zabbix-agent
+      state: restarted
+      enabled: yes
 
-    - name: Start and enable Zabbix agent
-      service:
-        name: zabbix-agent
-        state: restarted
-        enabled: yes
+  - name: Start and enable httpd
+    service:
+      name: httpd
+      state: restarted
+      enabled: yes
 
-    - name: Start and enable httpd
-      service:
-        name: httpd
-        state: restarted
-        enabled: yes
-
-    - name: Start and enable php-fpm
-      service:
-        name: php-fpm
-        state: restarted
-        enabled: yes
+  - name: Start and enable php-fpm
+    service:
+      name: php-fpm
+      state: restarted
+      enabled: yes
         
-    - name: Add HTTP firewall rule
-      firewalld:
-        service: http
-        permanent: yes
-        state: enabled
+  - name: Add HTTP firewall rule
+    firewalld:
+      service: http
+      permanent: yes
+      state: enabled
         
-    - name: Add HTTPS firewall rule
-      firewalld:
-        service: https
-        permanent: yes
-        state: enabled
+  - name: Add HTTPS firewall rule
+    firewalld:
+      service: https
+      permanent: yes
+      state: enabled
         
-    - name: Restart firewalld
-      service:
-        name: firewalld
-        state: restarted
-        enabled: yes
+  - name: Restart firewalld
+    service:
+      name: firewalld
+      state: restarted
+      enabled: yes
     
-    - debug:
-        msg: http://hostname/zabbix Admin/zabbix
+  - name: Print URL
+    debug:
+      msg: http://hostname/zabbix Admin/zabbix
