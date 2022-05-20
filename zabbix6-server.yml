@@ -45,7 +45,7 @@
     community.mysql.mysql_user: login_user=root login_password="" name=zabbix password="password" priv="zabbix.*:ALL" state=present
       
   - name: Import initial Zabbix data
-    shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql --user=zabbix --password=password zabbix
+    shell: zcat /usr/share/doc/zabbix-sql-scripts/mysql/server.sql.gz | mysql --user=zabbix --password=password --force zabbix 2> /dev/null
       
   - name: Edit Zabbix DB password in config
     lineinfile:
