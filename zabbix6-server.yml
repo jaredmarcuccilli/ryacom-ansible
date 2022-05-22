@@ -51,6 +51,24 @@
       regexp: "^# DBpassword="
       line: DBPassword=password
         
+  - name: Download zabbix.conf.php
+    get_url:
+      url: https://raw.githubusercontent.com/jaredmarcuccilli/ryacom-ansible/main/config/zabbix.conf.php
+      dest: /etc/zabbix/web/zabbix.conf.php
+
+  - name: Change zabbix.conf.php ownership, group, and permissions
+    ansible.builtin.file:
+      path: /etc/zabbix/web/zabbix.conf.php
+      owner: apache
+      group: apache
+      mode: '0644'
+
+  - name: Update hostname in zabbix.conf.php
+    replace:
+      path: /etc/zabbix/web/zabbix.conf.php
+      regexp: "hostname"
+      replace: "{{ ansible_fqdn }}"        
+        
   - name: Start and enable Zabbix server
     service:
       name: zabbix-server
