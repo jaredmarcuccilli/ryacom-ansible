@@ -12,6 +12,15 @@
       owner: apache
       group: apache
       mode: '0644'
+      
+  - set_fact:
+          var1: "{{ ansible_hostname.split('-')[0] }}"
+          
+  - name: Update hostname in zabbix.conf.php
+    replace:
+      path: /etc/zabbix/web/zabbix.conf.php
+      regexp: "hostname"
+      replace: "{{ var1 }}"
 
   - name: Restart Zabbix server
     service:
