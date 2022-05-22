@@ -2,9 +2,9 @@
   become: yes
   tasks:
   - name: Download zabbix.conf.php
-  get_url:
-    url: https://raw.githubusercontent.com/jaredmarcuccilli/ryacom-ansible/main/config/zabbix.conf.php
-    dest: /etc/zabbix/web/zabbix.conf.php
+    get_url:
+      url: https://raw.githubusercontent.com/jaredmarcuccilli/ryacom-ansible/main/config/zabbix.conf.php
+      dest: /etc/zabbix/web/zabbix.conf.php
 
   - name: Change zabbix.conf.php ownership, group, and permissions
     ansible.builtin.file:
