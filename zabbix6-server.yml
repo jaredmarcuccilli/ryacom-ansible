@@ -113,4 +113,4 @@
     
   - name: Print URL
     debug:
-      msg: All done! Go to http://hostname/zabbix (Admin/zabbix)
+      msg: "All done! Go to {{ ansible_fqdn }} (Admin/zabbix)"
