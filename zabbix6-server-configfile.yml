@@ -6,12 +6,12 @@
     url: https://raw.githubusercontent.com/jaredmarcuccilli/ryacom-ansible/main/config/zabbix.conf.php
     dest: /etc/zabbix/web/zabbix.conf.php
 
-  - name: Change zabbix.conf.php ownership, group and permissions
-  ansible.builtin.file:
-    path: /etc/zabbix/web/zabbix.conf.php
-    owner: apache
-    group: apache
-    mode: '0644'
+  - name: Change zabbix.conf.php ownership, group, and permissions
+    ansible.builtin.file:
+      path: /etc/zabbix/web/zabbix.conf.php
+      owner: apache
+      group: apache
+      mode: '0644'
 
   - name: Restart Zabbix server
     service:
