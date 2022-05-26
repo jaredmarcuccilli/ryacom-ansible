@@ -1,3 +1,4 @@
 - hosts: all
   become: yes
-  shell: insights-client --register
+  tasks:
+  - shell: insights-client --register
