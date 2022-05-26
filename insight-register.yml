@@ -1,4 +1,3 @@
 - hosts: all
   become: yes
-  roles:
-  - { role: RedHatInsights.insights-client, when: ansible_os_family == 'RedHat' }
+  shell: insights-client --register
