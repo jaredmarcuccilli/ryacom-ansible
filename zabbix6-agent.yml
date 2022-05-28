@@ -21,6 +21,19 @@
       path: /etc/zabbix/zabbix_agentd.conf
       regexp: "^Server="
       line: Server=zabbix.ad.ryacom.org
+      
+  - name: Add Zabbix agent firewall rule
+    firewalld:
+      port: 10050/tcp
+      permanent: yes
+      state: enabled
+      immediate: yes
+        
+  - name: Restart firewalld
+    service:
+      name: firewalld
+      state: restarted
+      enabled: yes
         
   - name: Start and enable Zabbix agent
     service:
