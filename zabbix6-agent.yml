@@ -17,10 +17,10 @@
         state: present
         
   - name: Set Zabbix server IP address in agent config
-      lineinfile:
-        path: /etc/zabbix/zabbix_agentd.conf
-        regexp: "^Server=127.0.0.1"
-        line: Server=zabbix.ad.ryacom.org
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: "^Server=127.0.0.1"
+      line: Server=zabbix.ad.ryacom.org
         
   - name: Start and enable Zabbix agent
     service:
