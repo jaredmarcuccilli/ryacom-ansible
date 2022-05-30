@@ -2,4 +2,4 @@
   become: yes
   tasks:
   - shell: insights-client --register
-    when: ansible_distribution == 'Red Hat Enterprise Linux'
+    when: ansible_distribution == "RedHat"
