@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: all,!"Ansible Servers"
   become: yes
   tasks:
   - name: Update all installed packages
