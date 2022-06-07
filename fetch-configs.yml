@@ -1,0 +1,9 @@
+- name: Fetch files
+  ansible.builtin.fetch:
+    src: {{ item }}
+    dest: /tmp/ryacom-configs/{{ ansible_fqdn }}/{{ item }}
+    flat: yes
+  loop:
+     - /etc/fstab
+     - /etc/sudoers
+     - /etc/samba/smb.conf
