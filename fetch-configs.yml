@@ -9,4 +9,5 @@
       loop:
         - /etc/fstab
         - /etc/sudoers
+        - /etc/realmd.conf
         - /etc/samba/smb.conf
