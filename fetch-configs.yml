@@ -4,7 +4,7 @@
     - name: Fetch files
       ansible.builtin.fetch:
         src: "{{ item }}"
-        dest: ~/ryacom-configs/{{ ansible_fqdn }}/{{ item }}
+        dest: /home/ansible/ryacom-configs/{{ ansible_fqdn }}/{{ item }}
         flat: yes
       loop:
         - /etc/fstab
