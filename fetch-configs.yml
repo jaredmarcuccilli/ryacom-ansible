@@ -11,3 +11,4 @@
         - /etc/sudoers
         - /etc/realmd.conf
         - /etc/samba/smb.conf
+      ignore_errors: yes
