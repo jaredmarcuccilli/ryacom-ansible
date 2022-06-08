@@ -4,11 +4,10 @@
     - name: Fetch files
       ansible.builtin.fetch:
         src: "{{ item }}"
-        dest: ryacom-configs/{{ ansible_fqdn }}/{{ item }}
-        flat: yes
+        dest: "{{ item }}"
+      fail_on_missing: no
       loop:
         - /etc/fstab
         - /etc/sudoers
         - /etc/sssd/sssd.conf
         - /etc/samba/smb.conf
-      ignore_errors: yes
