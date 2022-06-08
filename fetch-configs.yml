@@ -5,7 +5,7 @@
       ansible.builtin.fetch:
         src: "{{ item }}"
         dest: "{{ item }}"
-      fail_on_missing: no
+        fail_on_missing: no
       loop:
         - /etc/fstab
         - /etc/sudoers
