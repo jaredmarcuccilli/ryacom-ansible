@@ -9,6 +9,7 @@
       loop:
         - /etc/fstab
         - /etc/sudoers
-        - /etc/realmd.conf
+        - /etc/sudoers.d/*
+        - /etc/sssd/sssd.conf
         - /etc/samba/smb.conf
       ignore_errors: yes
