@@ -8,6 +8,7 @@
         fail_on_missing: no
       loop:
         - /etc/fstab
+        - /etc/hosts
         - /etc/sudoers
         - /etc/sssd/sssd.conf
         - /etc/samba/smb.conf
